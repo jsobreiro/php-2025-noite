@@ -4,7 +4,7 @@ function conectar_banco() {
     $servidor   = 'localhost:3307';
     $usuario    = 'root';
     $senha      = '';
-    $banco      = '';   
+    $banco      = 'bd_cadastro';   
     
     $conn = mysqli_connect($servidor, $usuario, $senha, $banco);
 
