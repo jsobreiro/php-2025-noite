@@ -10,4 +10,8 @@ function ha_campos_em_branco($dados) {
             empty($dados['email']);
 }
 
+function id_nao_recebido() {
+    return !isset($_GET['id']);
+}
+
 ?>

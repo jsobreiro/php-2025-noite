@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 08 - Cadastrar Cliente</title>
 </head>
-<body>
+<body class="container-fluid">
     
     <h1>Aula 08 - Cadastrar Cliente</h1>
 
