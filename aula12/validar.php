@@ -24,7 +24,7 @@
     $conn = conectar_banco();
 
     // criar consulta sem parâmetros associados
-    $sql = "SELECT * FROM tb_usuarios WHERE usuario LIKE ? AND senha LIKE ?";
+    $sql = "SELECT * FROM tb_usuarios WHERE usuario = ? AND senha = ?";
 
     // preparar declaração (statemant) de consulta
     $stmt = mysqli_prepare($conn, $sql);
@@ -59,10 +59,17 @@
         exit; // finalizamos a execução do script
     }
 
+    // pedir para associar o retorno do select em variáveis locais
+    mysqli_stmt_bind_result($stmt, $id, $usuario, $senha);
+
+    // agora, é necessário dar um 'fetch' para armazenar o resultado nas variáveis
+    mysqli_stmt_fetch($stmt);
+
     // iniciar a sessão
     session_start();
 
     // registrar dados da sessão
+    $_SESSION['id']      = $id;
     $_SESSION['usuario'] = $usuario;
     $_SESSION['senha']   = $senha;
 

@@ -4,6 +4,10 @@ function form_nao_enviado() {
     return $_SERVER['REQUEST_METHOD'] !== 'POST';
 }
 
+function tarefa_em_branco() {
+    return empty($_POST['tarefa']);
+}
+
 function form_em_branco() {
     return empty($_POST['usuario']) || empty($_POST['senha']);
 }
@@ -28,7 +32,7 @@ function validar_codigo() {
             break;
 
         case 2: // form não submetido
-            $msg = "<h3>Por favor, preencha todos os campos do form de login.</h3>";
+            $msg = "<h3>Por favor, preencha todos os campos do form.</h3>";
             break;
 
         case 3: // usuário ou senha inválidos
@@ -39,7 +43,12 @@ function validar_codigo() {
             $msg = "<h3>Ocorreu um erro ao acessar banco de dados. Por favor, contate
                     o suporte, ou tente novamente mais tarde</h3>";
             break;
-        
+
+        case 5: // erro ao excluir tarefa
+            $msg = "<h3>Ocorreu um erro ao tentar excluir a tarefa selecionada. Por
+             favor, contate o suporte, ou tente novamente mais tarde</h3>";
+             break;
+
         default:
             $msg = "";
             break;
